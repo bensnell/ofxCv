@@ -179,7 +179,9 @@ namespace ofxCv {
 	
     std::vector<glm::vec3> FlowPyrLK::getFeatures(){
 		ofPolyline poly = toOf(prevPts);
-		return poly.getVertices();
+		std::vector<glm::vec3> tmpPoly;
+		for (auto& v : poly.getVertices()) tmpPoly.push_back(v);
+		return tmpPoly;
 	}
 	
 	std::vector<glm::vec2> FlowPyrLK::getCurrent(){

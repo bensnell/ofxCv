@@ -36,7 +36,9 @@ namespace ofxCv {
 	}
 	
 	Mat toCv(ofMesh& mesh) {
-		std::vector<glm::vec3>& vertices = mesh.getVertices();
+		auto& tmpVertices = mesh.getVertices();
+		std::vector<glm::vec3> vertices;
+		for (auto& v : tmpVertices) vertices.push_back(v);
 		return Mat(1, vertices.size(), CV_32FC3, &vertices[0]);
 	}
 	
